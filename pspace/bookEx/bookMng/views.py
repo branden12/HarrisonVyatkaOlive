@@ -1,20 +1,19 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
-# Create your views here.
-from .models import MainMenu
-
-from .forms import BookForm
-from .forms import CommentForm
 from django.http import HttpResponseRedirect
-
-from .models import Book
-#INSERTED THIS
-from .models import Comment
-
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
+#Models
+from .models import MainMenu
+from .models import Book
+from .models import Comment
+#Forms
+from .forms import BookForm
+from .forms import CommentForm
+
+
+
 
 def index(request):
     return render(request, 'bookMng/index.html',
@@ -60,7 +59,6 @@ def displaybooks(request):
                  })
 
 
-
 def book_detail(request, book_id):
     book = Book.objects.get(id=book_id)
     book.pic_path = book.picture.url[14:]
@@ -72,7 +70,6 @@ def book_detail(request, book_id):
                     'book': book,
                  })
 
-#comments Add a page to display the comments for the book. Where would I
 
 def book_delete(request, book_id):
     book = Book.objects.get(id=book_id)
@@ -82,7 +79,6 @@ def book_delete(request, book_id):
                   'bookMng/book_delete.html',
                  {
                     'item_list': MainMenu.objects.all(),
-
                  })
 
 
@@ -123,11 +119,10 @@ def postcomment(request):
         form = CommentForm(request.POST,request.FILES)
         if form.is_valid():
             # form.save()
-            comment=form.save(commit=False)
+            comment = form.save(commit=False)
 
             try:
                 comment.username=request.user
-
             except Exception:
                 pass
             comment.save()

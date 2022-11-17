@@ -22,14 +22,10 @@ class Book(models.Model):
     def __str__(self):
         return str(self.id)
 
-
-# SOMETHING I ADDED -TT
 class Comment(models.Model):
     title = models.CharField(max_length=200)
     comment = models.CharField(max_length=2000)
     username = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
-    # author = models.CharField(max_length=200)
-    # Needs to know which book this comment goes to
     book = models.CharField(max_length=200)
 
     def __str__(self):
