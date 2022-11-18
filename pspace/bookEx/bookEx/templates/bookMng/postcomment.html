@@ -21,6 +21,13 @@
     <table>
         {{ form.as_table }}
         <tr>
+            <td align="center"><b><label for="book">Book: </label></b>
+
+            </td>
+            <td><input type="text" name="book" value={{book.name}}></td>
+        </tr>
+        <tr>
+            <input type="hidden" name="book_id" value={{book.id}}>
             <td colspan="2">
                 <input type="submit" value="Submit">
             </td>

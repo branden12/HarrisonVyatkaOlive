@@ -10,7 +10,8 @@ urlpatterns = [
     path('book_delete/<int:book_id>', views.book_delete, name='book_delete'),
     #I Added this
     path('comments',views.comments,name='comments'),
-    path('postcomment',views.postcomment,name="postcomment"),
+    path('postcommentpost',views.postcommentpost,name="postcommentpost"),
+    path('book_detail/postcomment/<int:book_id>',views.postcomment,name="postcomment"),
     path('comment_detail/<int:comment_id>', views.comment_detail, name='comment_detail'),
     ]
 

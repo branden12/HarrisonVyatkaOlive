@@ -21,5 +21,5 @@ class CommentForm(ModelForm):
         fields=[
             'title',
             'comment',
-            'book',
+           # 'book',
         ]
