@@ -4,13 +4,27 @@
  Index Page
 {% endblock title  %}
 
-{% block sidenav %}
-  {% for item in item_list %}
+
+ {% block sidenav %}
+    {% if user.is_authenticated %}
+
+        {% for item in item_list %}
     <li>
         <a href="{{item.link}}">{{item.item}} </a>
     </li>
-  {% endfor %}
-{% endblock sidenav%}
+        {% endfor %}
+
+    {% else %}
+
+
+        <li>
+            <a href="{%url 'login'%}?next=/">Login </a>
+        </li>
+
+
+    {%endif%}
+     {% endblock sidenav%}
+
 
 {% block content %}
     <h1 align="center"> Welcome to Book Exchange</h1>
