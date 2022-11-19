@@ -25,6 +25,11 @@ CS 3337 - Software Engineering Final Project
 
 ### Main Tasks
 
+1. AboutUS 
+2. Seach Option (Search for a book)
+3. Reformat 
+4. Navbar
+
 ### Feature Tasks
 1. Book Comments
   - Theodore Tran
@@ -37,4 +42,13 @@ CS 3337 - Software Engineering Final Project
 3. Book Favorite Lists
   - Branden Zamora
   - Johnatation 
+
+### Due Dates
+
+First Draft Due:    Nov 28.
+Second Draft Due:   Nov 30.
+
+Final Draft Due:    Dec 7.
+
+All Document Due:   Dec 7.
 
