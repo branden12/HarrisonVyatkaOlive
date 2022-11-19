@@ -43,7 +43,7 @@ CS 3337 - Software Engineering Final Project
   - Branden Zamora
   - Johnatation 
 
-### Due Dates
+## Due Dates
 
 1. First Draft Due:    
   - Nov 28.
