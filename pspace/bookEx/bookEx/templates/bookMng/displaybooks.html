@@ -1,19 +1,29 @@
 {% extends "base.html" %}
 
 {% block title %}
- Display Book Page
+Display Book Page
 {% endblock title  %}
 
-{% block sidenav %}
-  {% for item in item_list %}
-    <li>
-        <a href="{{item.link}}">{{item.item}} </a>
+
+{%block navbar%}
+<ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
     </li>
-  {% endfor %}
-{% endblock sidenav%}
+{% for item in item_list %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+    </li>
+
+
+{% endfor %}
+</ul>
+{%endblock navbar%}
+
 
 {% block content %}
-    <h1 align="center"> Display Books Page</h1>
+<h1 align="center"> Display Books Page</h1>
 <table align="center" border="2" width="400">
     {% for book in books %}
     <tr>

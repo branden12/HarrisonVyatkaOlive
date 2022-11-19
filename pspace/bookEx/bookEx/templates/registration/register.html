@@ -4,12 +4,16 @@
 User Registration
 {% endblock title  %}
 
-{% block sidenav %}
-    <li>
-        <a href="/">Home</a>
-    </li>
+{%block navbar%}
 
-{% endblock sidenav %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+</ul>
+
+{%endblock navbar%}
+
 
 {% block content %}
     <h1 align="center">  User Registration</h1>
