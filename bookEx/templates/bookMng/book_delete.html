@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ Book Delete Page
+{% endblock title  %}
+
+{% block sidenav %}
+  {% for item in item_list %}
+    <li>
+        <a href="{{item.link}}">{{item.item}} </a>
+    </li>
+  {% endfor %}
+{% endblock sidenav%}
+
+{% block content %}
+    <h1 align="center">  Book Deleted</h1>
+
+{% endblock content %}
