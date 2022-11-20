@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 #Models
 from .models import MainMenu
 from .models import Book
@@ -70,7 +71,6 @@ def book_detail(request, book_id):
                     'book': book,
                  })
 
-
 def book_delete(request, book_id):
     book = Book.objects.get(id=book_id)
     book.delete()
@@ -80,7 +80,6 @@ def book_delete(request, book_id):
                  {
                     'item_list': MainMenu.objects.all(),
                  })
-
 
 def mybooks(request):
     books = Book.objects.filter(username=request.user)
@@ -103,7 +102,6 @@ class Register(CreateView):
         return HttpResponseRedirect(self.success_url)
 
 def comments(request):
-
     commentlist = Comment.objects.all()
 
     return render(request,
@@ -142,7 +140,6 @@ def postcomment(request, book_id):
                     'book': book
                  })
 def postcommentpost(request):
-
     submitted = False
     if request.method == 'POST':
         form = CommentForm(request.POST,request.FILES)
@@ -169,8 +166,6 @@ def postcommentpost(request):
 
                  })
 
-
-
 def comment_detail(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
 
@@ -180,3 +175,59 @@ def comment_detail(request, comment_id):
                     'item_list': MainMenu.objects.all(),
                     'comment': comment,
                  })
+
+def search(request):
+    submitted = False
+    searchmethod = None
+    searchvalue = None
+    book = None
+    books= None
+    if request.method == 'POST':
+        try:
+            # This is how you get those parameters
+            searchmethod = request.POST.get("searchmethod")
+            searchvalue = request.POST.get("searchvalue")
+        except Exception:
+            print("Error occurred")
+
+        return HttpResponseRedirect('/search.html?submitted=True&searchmethod='+searchmethod+'&searchvalue='+searchvalue)
+    else:
+
+        if 'submitted' in request.GET:
+            submitted = True
+        if 'searchmethod' in request.GET:
+            searchmethod =  request.GET.get("searchmethod")
+        if 'searchvalue' in request.GET:
+            searchvalue = request.GET.get("searchvalue")
+
+        try:
+            if searchmethod == "book_id":
+              #  book = Book.objects.get(id=int(searchvalue))
+                books = Book.objects.filter(id=int(searchvalue))
+
+            elif searchmethod == "name":
+                #book = Book.objects.get(name=searchvalue)
+                books = Book.objects.filter(name=searchvalue)
+
+            elif searchmethod == "user":
+                user = User.objects.get(username=searchvalue)
+
+                books = Book.objects.filter(username=user)
+
+
+
+        except Exception:
+            books = None
+            book = None
+
+    return render(request,
+                  'bookMng/search.html',
+                  {
+
+                      'searchmethod': searchmethod,
+                      'searchvalue': searchvalue,
+                      "books":books,
+                      #"book": book,
+                      'submitted': submitted,
+                      'item_list': MainMenu.objects.all(),
+                  })

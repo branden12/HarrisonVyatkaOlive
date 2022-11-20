@@ -13,6 +13,8 @@ urlpatterns = [
     path('postcommentpost',views.postcommentpost,name="postcommentpost"),
     path('book_detail/postcomment/<int:book_id>',views.postcomment,name="postcomment"),
     path('comment_detail/<int:comment_id>', views.comment_detail, name='comment_detail'),
+    path('search/',views.search,name="search"),
+    path('search.html',views.search,name="search2")
     ]
 
 
