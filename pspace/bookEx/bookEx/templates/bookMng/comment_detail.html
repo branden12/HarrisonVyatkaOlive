@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ Comment Detail Page
+{% endblock title  %}
+
+{%block navbar%}
+<ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+{% for item in item_list %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+    </li>
+
+
+{% endfor %}
+</ul>
+{%endblock navbar%}
+
+{% block content %}
+    <h1 align="center"> Comment Detail</h1>
+<table align="center" border="2" width="400">
+    <tr>
+        <td width="25%">
+           <b>Title</b>
+        </td>
+        <td>
+           {{comment.title}}
+        </td>
+    </tr>
+    <tr>
+        <td width="25%">
+           <b>Comment</b>
+        </td>
+        <td>
+            {{comment.comment}}
+        </td>
+    </tr>
+    <tr>
+        <td width="25%">
+           <b>Book</b>
+        </td>
+        <td>
+            {{comment.book}}
+        </td>
+    </tr>
+    <tr>
+        <td width="25%">
+           <b>User</b>
+        </td>
+        <td>
+           {{comment.username}}
+        </td>
+    </tr>
+
+
+
+</table>
+{% endblock content %}
