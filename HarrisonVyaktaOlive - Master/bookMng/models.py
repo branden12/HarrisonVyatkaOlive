@@ -1,5 +1,5 @@
 from django.db import models
-
+from django import forms
 # Create your models here.
 from django.contrib.auth.models import User
 
@@ -22,4 +22,11 @@ class Book(models.Model):
     def __str__(self):
         return str(self.id)
 
+class Comment(models.Model):
+    title = models.CharField(max_length=200)
+    comment = models.CharField(max_length=2000)
+    username = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
+    book = models.CharField(max_length=200)
 
+    def __str__(self):
+        return str(self.id)

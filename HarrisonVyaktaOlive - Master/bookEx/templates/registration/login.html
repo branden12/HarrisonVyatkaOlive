@@ -4,12 +4,17 @@
 Login
 {% endblock title  %}
 
-{% block sidenav %}
-    <li>
-        <a href="/">Home</a>
-    </li>
 
-{% endblock sidenav %}
+{%block navbar%}
+
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+</ul>
+
+{%endblock navbar%}
+
 
 {% block content %}
     <h1 align="center"> User Login </h1>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
- Book Detail Page
+ Comment Detail Page
 {% endblock title  %}
 
 {%block navbar%}
@@ -21,30 +21,42 @@
 {%endblock navbar%}
 
 {% block content %}
-    <h1 align="center">  Book Detail</h1>
+    <h1 align="center"> Comment Detail</h1>
 <table align="center" border="2" width="400">
     <tr>
+        <td width="25%">
+           <b>Title</b>
+        </td>
         <td>
-            {{book.name}}
+           {{comment.title}}
         </td>
     </tr>
     <tr>
+        <td width="25%">
+           <b>Comment</b>
+        </td>
         <td>
-            <img src="{% static book.pic_path %}" width="100"/>
+            {{comment.comment}}
         </td>
     </tr>
     <tr>
+        <td width="25%">
+           <b>Book</b>
+        </td>
         <td>
-            {{book.username}}
+            {{comment.book}}
         </td>
     </tr>
     <tr>
+        <td width="25%">
+           <b>User</b>
+        </td>
         <td>
-            <a href="postcomment/{{book.id}}">
-                Add Comment
-            </a>
+           {{comment.username}}
         </td>
     </tr>
+
+
 
 </table>
 {% endblock content %}

@@ -19,7 +19,7 @@ from django.urls import path
 from django.urls import include
 
 from  django.views.generic.base import TemplateView
-from master.bookMng.views import Register
+from bookMng.views import Register
 
 
 urlpatterns = [

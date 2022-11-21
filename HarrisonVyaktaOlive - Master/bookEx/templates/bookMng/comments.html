@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
 {% block title %}
-Display Book Page
+ Comments Page
 {% endblock title  %}
-
 
 {%block navbar%}
 <ul class="navbar-nav mr-auto">
@@ -21,18 +20,30 @@ Display Book Page
 </ul>
 {%endblock navbar%}
 
-
 {% block content %}
-<h1 align="center"> Display Books Page</h1>
+    <h1 align="center"> Comments Page</h1>
 <table align="center" border="2" width="400">
-    {% for book in books %}
+    <tr>
+        <th>Comment Title</th>
+        <th>Book</th>
+         <th> Username</th>
+    </tr>
+    {% for comment in commentlist %}
     <tr>
         <td>
-            <a href="book_detail/{{book.id}}">
-                {{ book.name }}
+            <a href="comment_detail/{{comment.id}}">
+                {{ comment.title }}
             </a>
         </td>
+        <td>
+            {{comment.book}}
+        </td>
+        <td>
+            {{comment.username}}
+        </td>
+
     </tr>
     {%endfor %}
+
 </table>
 {% endblock content %}
