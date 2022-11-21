@@ -202,13 +202,9 @@ def search(request):
 
         try:
             if searchmethod == "book_id":
-              #  book = Book.objects.get(id=int(searchvalue))
                 books = Book.objects.filter(id=int(searchvalue))
-
             elif searchmethod == "name":
-                #book = Book.objects.get(name=searchvalue)
                 books = Book.objects.filter(name=searchvalue)
-
             elif searchmethod == "user":
                 user = User.objects.get(username=searchvalue)
 
@@ -227,7 +223,7 @@ def search(request):
                       'searchmethod': searchmethod,
                       'searchvalue': searchvalue,
                       "books":books,
-                      #"book": book,
+
                       'submitted': submitted,
                       'item_list': MainMenu.objects.all(),
                   })
