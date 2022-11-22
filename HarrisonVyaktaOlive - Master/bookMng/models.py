@@ -30,3 +30,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+# Create Favorite Model
+class Favorite(models.Model):
+
+    title = models.CharField(max_length=200)
+#    # favorite = models.CharField(max_length=2000)
+#    username = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
+#    book = models.CharField(max_length=20 0)
+#
+    def __str__(self):
+        return str(self.id)

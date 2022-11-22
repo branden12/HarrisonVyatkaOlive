@@ -1,37 +1,35 @@
 {% extends "base.html" %}
 
 {% block title %}
-Index Page
+    Index Page
 {% endblock title  %}
 
 
 {%block navbar%}
-<ul class="navbar-nav mr-auto">
-{% if user.is_authenticated %}
+    <ul class="navbar-nav mr-auto">
 
-     <li class="nav-item">
-        <a class="nav-link" href="/">Home </a>
-    </li>
-{% for item in item_list %}
+    {% if user.is_authenticated %}
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
-    </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/">Home </a>
+         </li>
 
+    {% for item in item_list %}
 
-{% endfor %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+        </li>
 
-
-{% else %}
-
-    <li class="nav-item">
-        <a class="nav-link" href="{%url 'login'%}?next=/">Login </a>
-    </li>
+    {% endfor %}
 
 
+    {% else %}
 
-{%endif%}
-    </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'login'%}?next=/">Login </a>
+        </li>
+    {%endif%}
+        </ul>
 {%endblock navbar%}
 
 

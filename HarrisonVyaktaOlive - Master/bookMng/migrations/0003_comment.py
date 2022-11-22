@@ -28,13 +28,11 @@ class Migration(migrations.Migration):
                 ("title",models.CharField(max_length=200)),
                 ("comment", models.CharField(max_length=2000)),
                 ("book", models.CharField(max_length=200)),
-                (
-                    "username",
-                    models.ForeignKey(
-                        blank=True,
-                        null=True,
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.AUTH_USER_MODEL,
+                ("username", models.ForeignKey(
+                    blank=True,
+                    null=True,
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL,
                     ),
                 ),
             ],

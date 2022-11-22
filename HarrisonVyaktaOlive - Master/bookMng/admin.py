@@ -4,11 +4,14 @@ from django.contrib import admin
 
 from .models import MainMenu
 from .models import Book
-#I INSERTED THIS
+
+#Inserted Feature Models
 from .models import Comment
+from .models import Favorite
 
 admin.site.register(MainMenu)
 admin.site.register(Book)
 
-#Inserted this
+# Registering features Models
 admin.site.register(Comment)
+admin.site.register(Favorite)

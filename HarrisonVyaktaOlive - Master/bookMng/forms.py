@@ -3,6 +3,7 @@ from django.forms import ModelForm
 
 from .models import Book
 from .models import Comment
+from .models import Favorite
 
 
 class BookForm(ModelForm):
@@ -22,4 +23,12 @@ class CommentForm(ModelForm):
             'title',
             'comment',
            # 'book',
+        ]
+
+class FavoriteForm(ModelForm):
+
+    class Meta:
+        model = Favorite
+        fields =[
+            'title'
         ]
