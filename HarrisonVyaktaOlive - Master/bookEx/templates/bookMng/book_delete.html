@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ Book Delete Page
+{% endblock title  %}
+
+{%block navbar%}
+<ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+{% for item in item_list %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+    </li>
+
+
+{% endfor %}
+</ul>
+{%endblock navbar%}
+
+{% block content %}
+    <h1 align="center">  Book Deleted</h1>
+
+{% endblock content %}
