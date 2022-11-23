@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+<!-- To display Image -->
+{% load static %}
+
+{% block title %}
+    Successfully Added to Favorites
+{% endblock title  %}
+
+{%block navbar%}
+    <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home </a>
+        </li>
+
+        {% for item in item_list %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+        </li>
+
+        {% endfor %}
+    </ul>
+{%endblock navbar%}
+
+
+{% block content %}
+
+<!-- Checks if the "form" is submitted -->
+{% if submitted %}
+<h1> Book has been added to Favorite List </h1>
+
+{% else %}
+<form action="" enctype="multipart/form-data" method="post">
+
+    <table>
+<!--        {{ form.as_table }}-->
+        <tr>
+            <th>
+                <input type="text" name="book_name" value={{book.name}}>
+            </th>
+            <th align="center">
+
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="{% static book.pic_path %}" width="100"/>
+            </td>
+        </tr>
+        <tr>
+            <input type="hidden" name="book_id" value={{book.id}}>
+
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+
+    </table>
+    {% csrf_token %}
+</form>
+{% endif%}
+
+{% endblock content %}

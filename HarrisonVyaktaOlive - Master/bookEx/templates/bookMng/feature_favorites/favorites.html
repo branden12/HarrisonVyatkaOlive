@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Favorites Page
+{% endblock title  %}
+
+<!-- Display NavBar when clicked on Favorites -->
+{%block navbar%}
+<ul class="navbar-nav mr-auto">
+
+     <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+{% for item in item_list %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+    </li>
+
+{% endfor %}
+</ul>
+
+{%endblock navbar%}
+
+<!--Main Content -->
+{% block content %}
+
+<!-- Fix Alignment -->
+<h1 align="center"> Favorites Page </h1>
+
+<table align="center" border="2">
+
+    <tr align="center">
+        <th> Favorite Books </th>
+    </tr>
+
+    {% for favorite in favoritelist %}
+    <tr>
+        <td> {{favorite.title}} </td>
+        <td>  <a href="feature_favorites/removefavorites/{{favorite.book_id}}"> Remove </a> </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock content %}
