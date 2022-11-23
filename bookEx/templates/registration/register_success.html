@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Registration Success
+{% endblock title  %}
+
+{%block navbar%}
+
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+</ul>
+
+{%endblock navbar%}
+
+
+{% block content %}
+<h1 align="center"> Registration Success! </h1>
+<p>
+  To login <a href="{% url 'login' %}?next=/">Click Here</a>
+
+</p>
+
+
+
+{% endblock content %}

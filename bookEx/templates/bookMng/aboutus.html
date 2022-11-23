@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    About Us Page
+{% endblock title  %}
+
+{%block navbar%}
+<ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+{% for item in item_list %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+    </li>
+{% endfor %}
+</ul>
+{%endblock navbar%}
+
+{% block content %}
+    <h1 align="center"> About Us </h1>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>
+                    Hello, Welcome to the Book Exchange Website!
+                    <br/><br/>
+                    On this site you can:
+                    <br/>
+                    - Post your book with a name, site, price, and a picture.
+                    <br/>
+                    - Display your added book, and you can comment on it.
+                    <br/>
+                    - My books tab shows the books added with description for each and the ability to remove it.
+                    <br/>
+                    - Comments page specifically show what users added a comment in Display Books tab.
+                    <br/>
+                    (This will let users know what books to avoid or look at.)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock content %}

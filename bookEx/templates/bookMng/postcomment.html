@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+ Comments Page
+{% endblock title  %}
+
+{%block navbar%}
+<ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+    </li>
+{% for item in item_list %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{item.link}}">{{item.item}} </a>
+    </li>
+
+
+{% endfor %}
+</ul>
+{%endblock navbar%}
+
+{% block content %}
+    <h1> Post Comment Page</h1>
+{% if submitted %}
+<p> Comment Posted Successfully</p>
+{%else %}
+<form action="" enctype="multipart/form-data" method="post" novalidate>
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td align="center"><b><label>Book: </label></b>
+
+            </td>
+            <td><input type="text" name="book" value={{book.name}}></td>
+        </tr>
+        <tr>
+            <input type="hidden" name="book_id" value={{book.id}}>
+            <td colspan="2">
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+    {% csrf_token %}
+</form>
+{% endif%}
+
+{% endblock content %}
